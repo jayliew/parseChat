@@ -28,6 +28,20 @@ class LoginViewController: UIViewController {
     
     // MARK: Actions
     
+    
+    @IBAction func onLogin(sender: AnyObject) {
+        PFUser.logInWithUsernameInBackground(usernameField.text!, password: passwordField.text!) {
+            (user: PFUser?, error: NSError?) -> Void in
+            if user != nil {
+                print("LOGGED IN!")
+                // Do stuff after successful login.
+            } else {
+                print("FAIL LOGIN")
+                // The login failed. Check error to see why.
+            }
+        }
+    }
+    
     @IBAction func onSignUp(sender: AnyObject) {
         let user = PFUser()
         

@@ -1,25 +1,80 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="parseChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U3Q-qm-b8I" userLabel="email">
+                                <rect key="frame" x="113" y="229" width="93.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7MB-JU-tgH" userLabel="password">
+                                <rect key="frame" x="99" y="269" width="121" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNi-8N-671">
+                                <rect key="frame" x="132" y="339" width="55" height="30"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="onSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0IV-Yw-dHz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yq-LY-9Tz">
+                                <rect key="frame" x="141" y="384" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ParseChat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oyO-p6-99B">
+                                <rect key="frame" x="83" y="60" width="154" height="37"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="42z-xR-YtS" userLabel="username">
+                                <rect key="frame" x="97" y="189" width="125" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9yq-LY-9Tz" firstAttribute="top" secondItem="yNi-8N-671" secondAttribute="bottom" constant="15" id="1Fu-Dv-S6H"/>
+                            <constraint firstItem="9yq-LY-9Tz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4sE-Xi-ttQ"/>
+                            <constraint firstItem="yNi-8N-671" firstAttribute="top" secondItem="7MB-JU-tgH" secondAttribute="bottom" constant="40" id="BRA-dI-9jY"/>
+                            <constraint firstItem="U3Q-qm-b8I" firstAttribute="top" secondItem="42z-xR-YtS" secondAttribute="bottom" constant="10" id="GhR-Fd-J53"/>
+                            <constraint firstItem="yNi-8N-671" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KLr-Nt-qSC"/>
+                            <constraint firstItem="7MB-JU-tgH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nzt-B4-gOC"/>
+                            <constraint firstItem="oyO-p6-99B" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="60" id="SFA-Et-4hY"/>
+                            <constraint firstItem="U3Q-qm-b8I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xfd-sS-VXP"/>
+                            <constraint firstItem="7MB-JU-tgH" firstAttribute="top" secondItem="U3Q-qm-b8I" secondAttribute="bottom" constant="10" id="btG-xB-Xig"/>
+                            <constraint firstItem="7MB-JU-tgH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="n0I-YN-mad"/>
+                            <constraint firstItem="42z-xR-YtS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qa7-SA-INV"/>
+                            <constraint firstItem="oyO-p6-99B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tYJ-cN-FsA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="U3Q-qm-b8I" id="WxB-fA-BEv"/>
+                        <outlet property="passwordField" destination="7MB-JU-tgH" id="rex-qr-3D2"/>
+                        <outlet property="usernameField" destination="42z-xR-YtS" id="Wnk-RX-hVs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="110" y="362"/>
         </scene>
     </scenes>
 </document>

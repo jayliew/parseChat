@@ -30,6 +30,11 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func onLogin(sender: AnyObject) {
+
+        if !checkRequiredFields() {
+            return
+        }
+
         PFUser.logInWithUsernameInBackground(usernameField.text!, password: passwordField.text!) {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
@@ -42,8 +47,43 @@ class LoginViewController: UIViewController {
         }
     }
     
+    private func checkRequiredFields() -> Bool {
+        // make username and pass mandatory field
+        if usernameField.text == "" {
+            let alertController = UIAlertController(title: "Missing", message: "Please Enter Username", preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+                // handle cancel response here. Doing nothing will dismiss the view.
+            }
+            alertController.addAction(cancelAction)
+            
+            presentViewController(alertController, animated: true) {
+                // optional code for what happens after the alert controller has finished presenting
+            }
+            return false
+        }
+
+        if passwordField.text == "" {
+            let alertController = UIAlertController(title: "Missing", message: "Please Enter Password", preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+                // handle cancel response here. Doing nothing will dismiss the view.
+            }
+            alertController.addAction(cancelAction)
+            
+            presentViewController(alertController, animated: true) {
+                // optional code for what happens after the alert controller has finished presenting
+            }
+            return false
+        }
+
+        return true
+    }
+    
     @IBAction func onSignUp(sender: AnyObject) {
         let user = PFUser()
+        
+        if !checkRequiredFields() {
+            return
+        }
         
         user.username = usernameField.text
         user.password = passwordField.text

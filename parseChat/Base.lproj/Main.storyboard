@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U3Q-qm-b8I" userLabel="email">
-                                <rect key="frame" x="113" y="229" width="93.5" height="30"/>
+                                <rect key="frame" x="113" y="229" width="94" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -93,28 +93,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="raE-nq-4fa" userLabel="Input Text Field">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="raE-nq-4fa" userLabel="Input Text Field">
                                 <rect key="frame" x="5" y="69" width="231" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Compose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghJ-ep-DfK">
-                                <rect key="frame" x="241" y="73" width="74" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh5-wX-nCg">
+                                <rect key="frame" x="249" y="69" width="66" height="30"/>
+                                <state key="normal" title="Compose"/>
+                                <connections>
+                                    <action selector="onCompose:" destination="SwN-oj-ZEW" eventType="touchUpInside" id="dhM-Z6-QRN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ghJ-ep-DfK" secondAttribute="trailing" constant="5" id="ImE-FY-u6w"/>
+                            <constraint firstAttribute="trailing" secondItem="nh5-wX-nCg" secondAttribute="trailing" constant="5" id="H5Y-XB-M9a"/>
+                            <constraint firstItem="nh5-wX-nCg" firstAttribute="centerY" secondItem="raE-nq-4fa" secondAttribute="centerY" id="NOD-S2-Nne"/>
                             <constraint firstItem="raE-nq-4fa" firstAttribute="top" secondItem="H6r-wF-hGe" secondAttribute="bottom" constant="5" id="PJz-ai-9hi"/>
-                            <constraint firstItem="ghJ-ep-DfK" firstAttribute="leading" secondItem="raE-nq-4fa" secondAttribute="trailing" constant="5" id="V3a-6D-bbE"/>
+                            <constraint firstItem="nh5-wX-nCg" firstAttribute="leading" secondItem="raE-nq-4fa" secondAttribute="trailing" constant="5" id="Qjw-x6-kzS"/>
                             <constraint firstItem="raE-nq-4fa" firstAttribute="leading" secondItem="z5h-7H-BYS" secondAttribute="leading" constant="5" id="xgS-Ri-NNd"/>
-                            <constraint firstItem="ghJ-ep-DfK" firstAttribute="centerY" secondItem="raE-nq-4fa" secondAttribute="centerY" id="zDk-4h-Aoa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="ZOz-KX-5S1"/>
+                    <connections>
+                        <outlet property="inputTextField" destination="raE-nq-4fa" id="lUx-FW-GNY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i0E-LK-zgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

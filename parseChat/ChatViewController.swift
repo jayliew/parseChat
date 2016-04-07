@@ -7,15 +7,34 @@
 //
 
 import UIKit
+import Parse
 
 class ChatViewController: UIViewController {
 
+    // MARK: Outlets
+    @IBOutlet weak var inputTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    // MARK: Actions
+    
+    @IBAction func onCompose(sender: AnyObject) {
+        let message = PFObject(className:"Message")
+        message["text"] = inputTextField.text
+        message.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                print("saved: " + (message["text"] as! String))
+            } else {
+                print("NOT saved: " + (message["text"] as! String) + " " + error!.description)
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U3Q-qm-b8I" userLabel="email">
-                                <rect key="frame" x="113" y="229" width="94" height="30"/>
+                                <rect key="frame" x="113" y="229" width="93.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -84,7 +84,7 @@
         <!--Chat-->
         <scene sceneID="olU-aG-nQn">
             <objects>
-                <viewController id="SwN-oj-ZEW" customClass="ChatViewController" customModule="parseChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatScreen" id="SwN-oj-ZEW" customClass="ChatViewController" customModule="parseChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H6r-wF-hGe"/>
                         <viewControllerLayoutGuide type="bottom" id="dz5-xq-2h2"/>
@@ -105,18 +105,54 @@
                                     <action selector="onCompose:" destination="SwN-oj-ZEW" eventType="touchUpInside" id="dhM-Z6-QRN"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tgt-HX-8pD">
+                                <rect key="frame" x="0.0" y="99" width="320" height="469"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell" id="2Tq-5n-Gao" customClass="ChatCell" customModule="parseChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Tq-5n-Gao" id="6Bu-gc-e0q">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="chatCell" text="Hello world" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7i-fb-kd1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="w7i-fb-kd1" firstAttribute="leading" secondItem="6Bu-gc-e0q" secondAttribute="leading" id="Aao-ag-5BU"/>
+                                                <constraint firstAttribute="trailing" secondItem="w7i-fb-kd1" secondAttribute="trailing" id="FEm-pu-1XU"/>
+                                                <constraint firstItem="w7i-fb-kd1" firstAttribute="top" secondItem="6Bu-gc-e0q" secondAttribute="top" id="q5J-cT-Esg"/>
+                                                <constraint firstAttribute="bottom" secondItem="w7i-fb-kd1" secondAttribute="bottom" id="xS9-G3-Qp5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="chatLabel" destination="w7i-fb-kd1" id="HbN-py-BUY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tgt-HX-8pD" secondAttribute="trailing" id="5HZ-FK-SXs"/>
                             <constraint firstAttribute="trailing" secondItem="nh5-wX-nCg" secondAttribute="trailing" constant="5" id="H5Y-XB-M9a"/>
                             <constraint firstItem="nh5-wX-nCg" firstAttribute="centerY" secondItem="raE-nq-4fa" secondAttribute="centerY" id="NOD-S2-Nne"/>
                             <constraint firstItem="raE-nq-4fa" firstAttribute="top" secondItem="H6r-wF-hGe" secondAttribute="bottom" constant="5" id="PJz-ai-9hi"/>
                             <constraint firstItem="nh5-wX-nCg" firstAttribute="leading" secondItem="raE-nq-4fa" secondAttribute="trailing" constant="5" id="Qjw-x6-kzS"/>
+                            <constraint firstItem="dz5-xq-2h2" firstAttribute="top" secondItem="tgt-HX-8pD" secondAttribute="bottom" id="Rtb-6z-SCv"/>
+                            <constraint firstItem="tgt-HX-8pD" firstAttribute="top" secondItem="nh5-wX-nCg" secondAttribute="bottom" id="Zh9-B6-Qjc"/>
+                            <constraint firstItem="tgt-HX-8pD" firstAttribute="leading" secondItem="z5h-7H-BYS" secondAttribute="leading" id="bJz-Bx-JIx"/>
                             <constraint firstItem="raE-nq-4fa" firstAttribute="leading" secondItem="z5h-7H-BYS" secondAttribute="leading" constant="5" id="xgS-Ri-NNd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="ZOz-KX-5S1"/>
                     <connections>
+                        <outlet property="chatTableView" destination="tgt-HX-8pD" id="fdR-Cn-Z5f"/>
                         <outlet property="inputTextField" destination="raE-nq-4fa" id="lUx-FW-GNY"/>
                     </connections>
                 </viewController>
@@ -127,7 +163,7 @@
         <!--Navigation Controller-->
         <scene sceneID="sT1-Ph-pRr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YbI-3k-MpJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ChatNavControl" automaticallyAdjustsScrollViewInsets="NO" id="YbI-3k-MpJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CHw-GE-nfO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -144,6 +180,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ncx-X1-aYV"/>
+        <segue reference="MQj-nK-iNh"/>
     </inferredMetricsTieBreakers>
 </document>

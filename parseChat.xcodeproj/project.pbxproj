@@ -14,6 +14,7 @@
 		E10A459D1CB4B6620005E8D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E10A459C1CB4B6620005E8D9 /* Assets.xcassets */; };
 		E10A45A01CB4B6620005E8D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E10A459E1CB4B6620005E8D9 /* LaunchScreen.storyboard */; };
 		E18CD9921CB5C7FA00350F5B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CD9911CB5C7FA00350F5B /* ChatViewController.swift */; };
+		E18CD9941CB7481100350F5B /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18CD9931CB7481100350F5B /* ChatCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E10A459F1CB4B6620005E8D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E10A45A11CB4B6620005E8D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E18CD9911CB5C7FA00350F5B /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		E18CD9931CB7481100350F5B /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				E10A45971CB4B6620005E8D9 /* LoginViewController.swift */,
 				E18CD9911CB5C7FA00350F5B /* ChatViewController.swift */,
 				E10A45991CB4B6620005E8D9 /* Main.storyboard */,
+				E18CD9931CB7481100350F5B /* ChatCell.swift */,
 				E10A459C1CB4B6620005E8D9 /* Assets.xcassets */,
 				E10A459E1CB4B6620005E8D9 /* LaunchScreen.storyboard */,
 				E10A45A11CB4B6620005E8D9 /* Info.plist */,
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E10A45981CB4B6620005E8D9 /* LoginViewController.swift in Sources */,
+				E18CD9941CB7481100350F5B /* ChatCell.swift in Sources */,
 				E18CD9921CB5C7FA00350F5B /* ChatViewController.swift in Sources */,
 				E10A45961CB4B6620005E8D9 /* AppDelegate.swift in Sources */,
 			);

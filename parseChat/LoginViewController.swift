@@ -19,15 +19,20 @@ class LoginViewController: UIViewController {
     
     // MARK: Properties
     
-    
+    var currentUser: PFUser?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    }
-
+        
+        if currentUser != nil {
+            let VC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ChatScreen") as UIViewController
+            presentViewController(VC, animated: true){}
+        }
+        
+    } // viewDidLoad
     
     // MARK: Actions
-    
     
     @IBAction func onLogin(sender: AnyObject) {
 
@@ -39,6 +44,7 @@ class LoginViewController: UIViewController {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 print("LOGGED IN!")
+                self.currentUser = PFUser.currentUser()
                 // Do stuff after successful login.
             } else {
                 print("FAIL LOGIN")
@@ -97,6 +103,7 @@ class LoginViewController: UIViewController {
                 // Show the errorString somewhere and let the user try again.
             } else {
                 print("REGISTRATION SUCCEEDED")
+                self.currentUser = PFUser.currentUser()
                 // Hooray! Let them use the app now.
             }
         }

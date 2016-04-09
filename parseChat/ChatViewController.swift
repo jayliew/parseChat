@@ -26,10 +26,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         chatTableView.rowHeight = UITableViewAutomaticDimension
 
         // Do any additional setup after loading the view.
+        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "loadMessages", userInfo: nil, repeats: true)
+        
         loadMessages()
     }
 
-    private func loadMessages(){
+    func loadMessages(){
         let query = PFQuery(className:"Message")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
@@ -38,6 +40,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // The find succeeded.
                 print("Successfully retrieved \(objects!.count) scores.")
                 // Do something with the found objects
+                
+                self.messages = []
                 
                 if let objects = objects {
                     for object in objects {

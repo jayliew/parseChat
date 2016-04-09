@@ -32,7 +32,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func loadMessages(){
-        let query = PFQuery(className:"Message")
+        let query = PFQuery(className:"Message").orderByDescending("createdAt")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             

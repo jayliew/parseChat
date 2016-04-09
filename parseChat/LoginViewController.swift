@@ -21,14 +21,17 @@ class LoginViewController: UIViewController {
     
     var currentUser: PFUser?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+    override func viewDidAppear(animated: Bool) {
         if currentUser != nil {
             let VC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ChatScreen") as UIViewController
             presentViewController(VC, animated: true){}
         }
+
+    } // viewDidAppear
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        currentUser = PFUser.currentUser()
         
     } // viewDidLoad
     

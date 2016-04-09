@@ -62,6 +62,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func onCompose(sender: AnyObject) {
         let message = PFObject(className:"Message")
         message["text"] = inputTextField.text
+        message["user"] = PFUser.currentUser()
         message.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {

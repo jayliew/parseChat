@@ -12,7 +12,7 @@ import Parse
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: Properties
-    var messages = [String]()
+    var messages = [[String: String?]]()
     
     // MARK: Outlets
     @IBOutlet weak var inputTextField: UITextField!
@@ -32,7 +32,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func loadMessages(){
-        let query = PFQuery(className:"Message").orderByDescending("createdAt")
+        let query = PFQuery(className:"Message").orderByDescending("createdAt").includeKey("user")
+        
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             
@@ -41,12 +42,23 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("Successfully retrieved \(objects!.count) scores.")
                 // Do something with the found objects
                 
-                self.messages = []
+                self.messages = [[String: String?]]()
                 
                 if let objects = objects {
                     for object in objects {
-                        print(object["text"])
-                        self.messages.append(object["text"] as! String)
+                        
+                        var tempDict = [String: String?]()
+                        
+                        if object["user"] != nil {
+                            let pfu = object["user"] as! PFUser
+                            tempDict = ["username": pfu.username!]
+                        }else{
+                            tempDict["username"] = nil
+                        }
+                        
+                        tempDict["text"] = object["text"] as? String
+                        
+                        self.messages.append(tempDict)
                     }
                 }
                 self.chatTableView.reloadData()
@@ -79,7 +91,15 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("chatCell") as! ChatCell
-        cell.chatLabel.text = messages[indexPath.row]
+        var message = messages[indexPath.row]
+        cell.chatLabel.text = message["text"]!
+        if message["username"] != nil {
+            cell.usernameLabel.hidden = false
+            cell.usernameLabel.text = message["username"]!
+            cell.usernameLabel.sizeToFit()
+        }else{
+            cell.usernameLabel.hidden = true
+        }
         return cell
     }
     

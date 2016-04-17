@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -19,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U3Q-qm-b8I" userLabel="email">
-                                <rect key="frame" x="113" y="229" width="93.5" height="30"/>
+                                <rect key="frame" x="113" y="229" width="94" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -116,22 +117,37 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="chatCell" text="Hello world" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7i-fb-kd1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NRk-ma-s4Z">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1L-kf-SQd">
+                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="44"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="chatCell" text="Hello world" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7i-fb-kd1">
+                                                            <rect key="frame" x="69" y="0.0" width="251" height="44"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="W1L-kf-SQd" firstAttribute="width" relation="lessThanOrEqual" secondItem="NRk-ma-s4Z" secondAttribute="width" multiplier="0.2" id="4oG-99-ajH"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="w7i-fb-kd1" firstAttribute="leading" secondItem="6Bu-gc-e0q" secondAttribute="leading" id="Aao-ag-5BU"/>
-                                                <constraint firstAttribute="trailing" secondItem="w7i-fb-kd1" secondAttribute="trailing" id="FEm-pu-1XU"/>
-                                                <constraint firstItem="w7i-fb-kd1" firstAttribute="top" secondItem="6Bu-gc-e0q" secondAttribute="top" id="q5J-cT-Esg"/>
-                                                <constraint firstAttribute="bottom" secondItem="w7i-fb-kd1" secondAttribute="bottom" id="xS9-G3-Qp5"/>
+                                                <constraint firstItem="NRk-ma-s4Z" firstAttribute="leading" secondItem="6Bu-gc-e0q" secondAttribute="leading" id="4T1-Zn-v2s"/>
+                                                <constraint firstAttribute="bottom" secondItem="NRk-ma-s4Z" secondAttribute="bottom" id="SER-oe-oSA"/>
+                                                <constraint firstAttribute="trailing" secondItem="NRk-ma-s4Z" secondAttribute="trailing" id="d0r-8s-CrF"/>
+                                                <constraint firstItem="NRk-ma-s4Z" firstAttribute="top" secondItem="6Bu-gc-e0q" secondAttribute="top" id="y22-rG-ok5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="chatLabel" destination="w7i-fb-kd1" id="HbN-py-BUY"/>
+                                            <outlet property="usernameLabel" destination="W1L-kf-SQd" id="7TP-vY-whk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
